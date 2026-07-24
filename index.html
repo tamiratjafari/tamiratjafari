@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وضعیت تعمیرات جعفری</title>
+
+<style>
+body{
+    font-family:tahoma;
+    background:#f2f2f2;
+    text-align:center;
+    padding-top:60px;
+}
+.card{
+    background:#fff;
+    max-width:420px;
+    margin:auto;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 10px #bbb;
+}
+.status{
+    font-size:32px;
+    font-weight:bold;
+    margin:20px 0;
+}
+.open{color:green;}
+.closed{color:red;}
+button{
+    padding:12px 20px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h2>تعمیرات جعفری</h2>
+
+<div id="status" class="status open">
+🟢 الان در مغازه هستم
+</div>
+
+<button onclick="changeStatus()">
+تغییر وضعیت
+</button>
+
+</div>
+
+<script>
+function changeStatus(){
+const s=document.getElementById("status");
+
+if(s.classList.contains("open")){
+s.className="status closed";
+s.innerHTML="🔴 الان در مغازه نیستم";
+}else{
+s.className="status open";
+s.innerHTML="🟢 الان در مغازه هستم";
+}
+}
+</script>
+
+</body>
+</html>
