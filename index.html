@@ -43,7 +43,21 @@ button{
 <h2> "عَلَی اللَّهِ رِزْقُها"<h2>  <h2>تعمیرات جعفری (زنبیل آباد،بیست متری امام حسین ع،روبروی کوچه سه،تعمیرات جعفری ساعت کاری صبح ۱۰ال۱۴عصر۱۸ال۲۲ تعطیلات رسمی معمولا ۱۸الی۲۲ )  </h2>
 
 <div id="status" class="status open">
-مغازه بسته است
+<p class="blink">🔴 مغازه بسته است</p>
+
+<style>
+.blink {
+  color: red;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+</style>
 </div>
 
 <button onclick="changeStatus()">
