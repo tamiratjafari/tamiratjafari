@@ -126,6 +126,39 @@ target="_blank"
 class="btn">
 📷 ارسال عکس و مشکل دستگاه
 </a>
+<script>
+function updateStatus() {
+    const status = document.getElementById("status");
+    const now = new Date();
 
+    const day = now.getDay(); // 0=یکشنبه ... 6=شنبه
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const time = hour * 60 + minute;
+
+    // تعطیلی جمعه
+    if (day === 5) {
+        status.innerHTML = '<p class="blink">🔴 امروز تعطیل است</p>';
+        return;
+    }
+
+    // 10:00 تا 14:00
+    const morning = time >= 600 && time < 840;
+
+    // 18:00 تا 22:00
+    const evening = time >= 1080 && time < 1320;
+
+    if (morning || evening) {
+        status.innerHTML = "🟢 مغازه باز است";
+        status.className = "status open";
+    } else {
+        status.innerHTML = '<p class="blink">🔴 مغازه بسته است</p>';
+        status.className = "status closed";
+    }
+}
+
+updateStatus();
+setInterval(updateStatus, 60000);
+</script>
 </body>
 </html>
