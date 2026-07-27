@@ -7,13 +7,12 @@
 
 <style>
 body{
-    font-family:Tahoma, sans-serif;
+    font-family:Tahoma,sans-serif;
     background:#f2f2f2;
     text-align:center;
     margin:0;
     padding:5px;
 }
-
 .card{
     background:#fff;
     max-width:420px;
@@ -22,14 +21,12 @@ body{
     border-radius:15px;
     box-shadow:0 0 10px #bbb;
 }
-
 .status{
     font-size:32px;
     font-weight:bold;
     margin:15px 0;
 }
-
-.open{color:red;}
+.open{color:green;}
 .closed{color:red;}
 
 button{
@@ -47,9 +44,7 @@ button{
 }
 
 @keyframes blink{
-    50%{
-        opacity:0;
-    }
+    50%{opacity:0;}
 }
 
 .btn{
@@ -71,25 +66,19 @@ button{
 
 <body>
 
-<h2 style="margin:0;">
-(هُوَ الرَّزَّاقُ)
-</h2>
-
-<br>
+<h2>(هُوَ الرَّزَّاقُ)</h2>
 
 <audio controls>
-  <source src="https://github.com/tamiratjafari/tamiratjafari/raw/refs/heads/main/43c14140.mp3" type="audio/mpeg">
+<source src="https://github.com/tamiratjafari/tamiratjafari/raw/refs/heads/main/43c14140.mp3" type="audio/mpeg">
 </audio>
 
 <br><br>
 
 <img src="Screenshot_۲۰۲۶-۰۷-۲۴-۲۰-۱۸-۲۰-۷۹۳_com.miui.gallery-edit.jpg"
-     alt="تعمیرات جعفری"
-     style="width:100%;max-width:150px;border-radius:15px;">
+style="width:100%;max-width:150px;border-radius:15px;">
 
 <img src="Screenshot_۲۰۲۶-۰۷-۲۴-۱۵-۵۶-۵۵-۴۷۶_com.opera.browser-edit.jpg"
-     alt="تعمیرات جعفری"
-     style="width:100%;max-width:150px;border-radius:15px;">
+style="width:100%;max-width:150px;border-radius:15px;">
 
 <div class="card">
 
@@ -97,17 +86,16 @@ button{
 تعمیرات جعفری<br>
 زنبیل‌آباد، بیست متری امام حسین(ع)، روبروی کوچه ۳<br>
 ساعت کاری:<br>
-صبح ۱۰ تا ۱۴/
-عصر ۱۷  تا ۲۲<br>
+صبح ۱۰ تا ۱۴<br>
+عصر ۱۷ تا ۲۲<br>
 تعطیلات رسمی: معمولاً ۱۸ تا ۲۲
 </h2>
 
-<div id="status" class="status open">
+<div id="status" class="status">
 <p class="blink">🔴 مغازه بسته است</p>
 </div>
 
 </div>
-
 <a href="https://nshn.ir/rbsjJWyxQZ70" target="_blank">
 <button style="background:#0a84ff;color:white;">
 📍 مسیریابی به مغازه
@@ -126,6 +114,78 @@ target="_blank"
 class="btn">
 📷 ارسال عکس و مشکل دستگاه
 </a>
+
+<div id="adminPanel" style="display:none;margin-top:20px;">
+<button onclick="setManual(true)" style="background:green;color:white;">🟢 باز</button>
+
+<button onclick="setManual(false)" style="background:red;color:white;">🔴 بسته</button>
+
+<button onclick="setAuto()" style="background:#0a84ff;color:white;">⏰ حالت خودکار</button>
+</div>
+
+<script>
+
+let autoMode = true;
+
+function checkStatus(){
+
+if(!autoMode) return;
+
+const h = new Date().getHours();
+
+const s = document.getElementById("status");
+
+if((h>=10 && h<14) || (h>=17 && h<22)){
+
+s.className="status open";
+s.innerHTML="<p>🟢 الان در مغازه هستم</p>";
+
+}else{
+
+s.className="status closed";
+s.innerHTML='<p class="blink">🔴 مغازه بسته است</p>';
+
+}
+
+}
+
+checkStatus();
+
+setInterval(checkStatus,60000);
+
+if(location.search=="?admin"){
+
+document.getElementById("adminPanel").style.display="block";
+
+}
+function setManual(open){
+
+autoMode = false;
+
+const s = document.getElementById("status");
+
+if(open){
+
+s.className="status open";
+s.innerHTML="<p>🟢 الان در مغازه هستم</p>";
+
+}else{
+
+s.className="status closed";
+s.innerHTML='<p class="blink">🔴 مغازه بسته است</p>';
+
+}
+
+}
+
+function setAuto(){
+
+autoMode = true;
+checkStatus();
+
+}
+
+</script>
 
 </body>
 </html>
