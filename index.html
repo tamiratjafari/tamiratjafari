@@ -71,46 +71,38 @@ button{
 
 <body>
 
-<h2 style="margin:0;">
-(هُوَ الرَّزَّاقُ)
-</h2>
 
-<div class="typing-container">
-  <span class="typing-text">
-﴿ وَارْزُقْنَا وَأَنتَ خَيْرُ الرَّازِقِينَ ﴾
-</span>
+
+    <div class="ayah-container">
+  <div class="ayah-text">
+  ﴿ وَارْزُقْنَا وَأَنتَ خَيْرُ الرَّازِقِينَ ﴾
+  </div>
 </div>
 
 <style>
-.typing-container{
-    direction: rtl;
-    text-align: center;
-    margin: 10px 0;
+.ayah-container{
+    width:100%;
+    overflow:hidden;
+    white-space:nowrap;
+    direction:rtl;
+    padding:10px 0;
 }
 
-.typing-text{
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    border-left: 3px solid #0066cc; /* مکان‌نمای قلم */
-    font-size: 25px;
-    font-weight: bold;
-    color: #0066cc;
-    width: 0;
-    animation:
-        typing 6s steps(28,end) infinite,
-        blink .7s step-end infinite;
+.ayah-text{
+    display:inline-block;
+    font-size:28px;
+    font-weight:bold;
+    color:#0066cc;
+    animation:moveRightToLeft 15s linear infinite;
 }
 
-@keyframes typing{
-    0%{width:0;}
-    45%{width:28ch;}
-    70%{width:28ch;}
-    100%{width:0;}
-}
-
-@keyframes blink{
-    50%{border-color:transparent;}
+@keyframes moveRightToLeft{
+    from{
+        transform:translateX(100%);
+    }
+    to{
+        transform:translateX(-100%);
+    }
 }
 </style>
     
