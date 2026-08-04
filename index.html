@@ -75,6 +75,45 @@ button{
 (هُوَ الرَّزَّاقُ)
 </h2>
 
+<div class="typing-container">
+  <span class="typing-text">
+﴿ وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا ﴾
+</span>
+</div>
+
+<style>
+.typing-container{
+    direction: rtl;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.typing-text{
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-left: 3px solid #0066cc; /* مکان‌نمای قلم */
+    font-size: 28px;
+    font-weight: bold;
+    color: #0066cc;
+    width: 0;
+    animation:
+        typing 6s steps(28,end) infinite,
+        blink .7s step-end infinite;
+}
+
+@keyframes typing{
+    0%{width:0;}
+    45%{width:28ch;}
+    70%{width:28ch;}
+    100%{width:0;}
+}
+
+@keyframes blink{
+    50%{border-color:transparent;}
+}
+</style>
+    
 <audio controls>
   <source src="https://loxup.ir/t/tamiratjafari_lxb.ir/43c14140%20(1).mp3?_t=1785404220" type="audio/mpeg">
 </audio>
