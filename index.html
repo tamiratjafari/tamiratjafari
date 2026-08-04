@@ -129,10 +129,36 @@ button{
 <div id="status" class="status open">
 <p class="blink">🔴 الان مغازه بسته است  </p>
       
-<marquee direction="right" scrollamount="4"
-style="background:#fff8dc; color:#000; padding:8px; font-size:18px; font-weight:bold;">
-📅 مناسبت‌های امروز: اربعین حسینی تعطیل  ...
-</marquee>
+<div style="
+background:#f5f5f5;
+color:#000;
+font-size:18px;
+font-weight:bold;
+padding:8px;
+overflow:hidden;
+white-space:nowrap;">
+<marquee direction="right" scrollamount="4" id="dateLine"></marquee>
+</div>
+
+<script>
+function updateDate(){
+let now = new Date();
+
+let time = now.toLocaleTimeString('fa-IR');
+
+let shamsi = now.toLocaleDateString('fa-IR-u-ca-persian');
+
+let ghamari = now.toLocaleDateString('fa-IR-u-ca-islamic');
+
+document.getElementById("dateLine").innerHTML =
+"🕒 ساعت: " + time +
+"　|　📅 تاریخ شمسی : " + shamsi +
+"　|　🌙 تاریخ قمری: " + ghamari;
+}
+
+setInterval(updateDate,1000);
+updateDate();
+</script>
     
 </div>
   ساعت کاری: صبح۱۰تا۱۴عصر۱۸تا۲۲
