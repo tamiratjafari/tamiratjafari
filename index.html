@@ -72,12 +72,31 @@ button{
 <body>
 
 
-
-    <div class="ayah-container">
-  <div class="ayah-text">
-  ﴿ وَارْزُقْنَا وَأَنتَ خَيْرُ الرَّازِقِينَ ﴾
-  </div>
+<div class="ayah">
+﴿ وَارْزُقْنَا وَأَنتَ خَيْرُ الرَّازِقِينَ ﴾
 </div>
+
+<style>
+.ayah{
+    text-align:center;
+    font-size:24px;
+    font-weight:900;
+    color:#0b8f3a;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+    50%{
+        opacity:0.45;
+        transform:scale(1.06);
+    }
+}
+</style>
+    
 
 <style>
 .ayah-container{
